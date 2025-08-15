@@ -1,0 +1,82 @@
+.landingTittle {
+    padding: 20px;
+    text-align: center;
+    width: 97,1%;
+    background-color: rgba(24, 54, 61, 0.637);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.landingTittle h1 {
+    max-width: 90%;
+    word-wrap: break-word;
+    font-weight: 300;
+    line-height: 1.3;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #faf6f6;
+    margin-bottom: 20px;
+    position: relative; 
+    padding-bottom: 10px; /* Espacio para la línea debajo del título */
+}
+h1::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 100px; /* Largo de la línea */
+  height: 2px; /* Grosor de la línea */
+  background-color: #e9e7e7; /* Color de la línea */
+  border-radius: 2px; /* Bordes suaves */
+}
+
+/* Lista */
+.landingTittle ul {
+    list-style: none; /* Quitamos el estilo por defecto */
+    padding-left: 0;
+    max-width: 900px;
+    text-align: left; /* Texto alineado a la izquierda */
+}
+
+.landingTittle li {
+    position: relative;
+    padding-left: 28px; /* Espacio para la viñeta personalizada */
+    margin-bottom: 18px;
+    font-size: 17px;
+    line-height: 1.5;
+    color: #f5f5f5;
+}
+
+/* Viñeta personalizada */
+.landingTittle li::before {
+   
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #ffd700; /* Dorado o el color que prefieras */
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+/* Botón */
+.landingTittle .button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color:#974b0c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.landingTittle .button:hover {
+    background-color:#ac652b;
+}
+
+

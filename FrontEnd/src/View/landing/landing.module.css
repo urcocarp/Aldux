@@ -1,0 +1,35 @@
+.landingContainer{
+    background-image: url('../../assets/habitacion.jpg');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    text-align: center;
+    position: relative; 
+    
+}
+.landingTittle{
+    margin-top:380px;
+    font-family: monospace;
+    font-size: 20px;
+    color: rgba(17, 16, 16, 0.726);
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.landingTittle p{
+    font-family: monospace;
+    font-size: 16px;
+    color: rgba(95, 28, 28, 0.726);
+    margin-bottom: 40px;
+}
+.imageLanding{
+    width: 200px;
+    height: 200px;
+}
+.imageLanding img{
+    margin-left: 100px;
+}

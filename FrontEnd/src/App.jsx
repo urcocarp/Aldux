@@ -1,12 +1,21 @@
-import { useState } from 'react'
-import './App.css'
-
+import './App.css'; 
+import NavBar from './components/navBar/navbar.jsx';
+import Landing from './View/landing/landing.jsx';
+import TextLanding from './components/textLanding/textLanding.jsx';
+import BulletPoint from './components/bulletPoint/bulletPoint.jsx';
+import Slider from './components/Slider/slider.jsx';
 function App() {
   
 
   return (
-    <div>
-     
+    <div className="App">
+      <NavBar />
+     <div >
+      <Landing />
+      <TextLanding />
+      <BulletPoint />
+      <Slider/>
+     </div>
       
         
     </div>
