@@ -4,7 +4,6 @@ import styles from './textLanding.module.css';
 const TextLanding = () => {
   return (
     <div className={styles.landingTittle}>
-      <h1>Diseño, confort y protección en cada detalle</h1>
       <ul>
         <li>
            En <strong>ALDUX</strong> creamos soluciones de diseño para tus ambientes.

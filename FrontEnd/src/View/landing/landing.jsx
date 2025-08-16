@@ -7,7 +7,7 @@ const Landing = () => {
     <div className={style.landingContainer}>
       
     <div className={style.imageLanding}>
-    <img src={imglogo} ></img>
+    
 
     </div>
     </div>
