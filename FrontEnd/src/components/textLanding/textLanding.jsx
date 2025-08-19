@@ -15,7 +15,7 @@ const TextLanding = () => {
            Descubre cómo nuestros productos pueden transformar tu entorno y brindarte la privacidad y confort que mereces.
         </li>
       </ul>
-      <button className={styles.button}>PEDI TU COTIZACION</button>
+     
     </div>
   );
 }

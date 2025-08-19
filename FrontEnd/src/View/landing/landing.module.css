@@ -1,35 +1,47 @@
 .landingContainer{
-    background-image: url('../../assets/hero1.jpg');
+    background-image: url('../../assets/images/hero.jpg');
     width: 100%;
     height: 100vh;
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     position: relative; 
     
 }
-.landingTittle{
-    margin-top:380px;
-    font-family: monospace;
-    font-size: 20px;
-    color: rgba(17, 16, 16, 0.726);
-    margin-bottom: 20px;
+.landingText{
+    font-family: 'Poppins', sans-serif;
+    margin-bottom:10px;
+    }
+.landingText h1{
+  font-size: 2.8rem;     
+  font-weight: 600;      
+  color: #000;           
+  line-height: 1.2; 
+  margin: 0;
+  letter-spacing: 3px;
+}
+.landingText h2{
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: rgba(61, 61, 60, 0.815);
+    margin-top: 10px;
+}
+.landingButton{
+    margin-top: 80px;
+    padding: 10px 30px;
+    background-color:#ff3c00;
+    color: white;
+    border: none;
+    border-radius: 5px;
     font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.425);
 }
-.landingTittle p{
-    font-family: monospace;
-    font-size: 16px;
-    color: rgba(95, 28, 28, 0.726);
-    margin-bottom: 40px;
-}
-.imageLanding{
-    width: 200px;
-    height: 200px;
-}
-.imageLanding img{
-    margin-left: 100px;
+.landingButton:hover {
+    background-color:#eb5904;
 }

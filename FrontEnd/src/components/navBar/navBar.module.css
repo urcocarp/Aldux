@@ -1,7 +1,7 @@
 .navbar {
   font-family:'Poppins', sans-serif;
   text-transform: uppercase;
-  background-color: rgba(24, 54, 61, 0.897);
+  background-color: rgb(255, 255, 255);
   position: fixed;
   top: 0;
   width: 100%;
@@ -45,7 +45,7 @@
 }
 
 .navItem {
-  color: white;
+  color: rgb(5, 5, 5);
   text-decoration: none;
   cursor: pointer;
   transition: color 0.3s ease;
@@ -53,6 +53,7 @@
 }
 
 .navItem:hover {
-  color: #974b0c; /* Color hover */
+  border-bottom: 2px solid #eb5904; /* Color hover */
+  color: #eb5904; /* Color hover */
 }
 

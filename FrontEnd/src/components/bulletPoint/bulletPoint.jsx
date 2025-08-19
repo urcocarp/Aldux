@@ -1,5 +1,5 @@
 import styles from './bulletPoint.module.css';
-import imgcortina from '../../assets/bulletsPoint.jpg'
+
 import diseño from '../../assets/diseño.png'
 import mat from '../../assets/material.png'
 import inst from '../../assets/instalacion.png'
@@ -10,7 +10,7 @@ const BulletPoint = () => {
   return (
     <div className={styles.cortinasContainer}>
       <div className={styles.imgCortinas}>
-        <img src={imgcortina} alt="Cortinas" />
+        
       </div>
       <div className={styles.textCortinas}>
       <h2>VENTAJAS DESTACADAS</h2>
