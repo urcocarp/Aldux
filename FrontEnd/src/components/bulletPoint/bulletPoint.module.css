@@ -1,80 +1,56 @@
 .cortinasContainer {
+  text-align: center;
+  padding: 60px 40px 100px;
+  background-color: #f9f9f9;
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 60px;
+  font-family: 'Poppins', sans-serif;
+  color: #000;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  gap: 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.card {
   display: flex;
   align-items: center;
-  justify-content: center; /* Centra horizontalmente */
-  gap: 1rem;
-  background-color: rgba(214, 214, 214, 0.562);
-  
+  justify-content: space-between;
+  background: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.493);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+}
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.808);
+}
+.reverse{
+  flex-direction: row-reverse;
+}
+.card img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.imgCortinas {
-  flex: 1; /* Ocupa 50% */
-  display: flex;
-  justify-content: center;
-}
-
-.imgCortinas img {
-  width: 100%;
-  max-width: 1000px; /* Controla tamaño máximo */
-  height: auto;
- 
-}
-
-.textCortinas {
-  flex: 1.2; /* Un poco más grande que la imagen */
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Centra el texto verticalmente */
-  padding: 1rem;
-  border-radius: 8px;
-}
-
-.textCortinas h2 {
-  font-family:'Poppins', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 600;
-  position: relative;
-  margin-bottom: 1.5rem;
-  padding-bottom: 0.5rem;
-  text-transform: uppercase;
+.card p {
+  flex: 1;
+  padding: 20px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
   text-align: center;
 }
 
-.textCortinas h2::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%); /* Centra el subrayado */
-  width: 150px;
-  height: 1px;
-  background-color: #333;
-  border-radius: 2px;
-}
-
-.textCortinas ul {
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin-left: 150px;
-}
-
-.textCortinas li {
-  font-family:'Poppins', sans-serif;
-  position: relative;
-  margin-bottom: 2.5rem;
-  font-size: 1rem;
-  padding-left: 2rem;
-}
-.textCortinas li img {
-  
-  position: absolute;
-  left: 0;
-  
-  top: 50%;
-  transform: translateY(-50%);
-  width: 24px; /* Tamaño del icono */
-  height: 24px; /* Tamaño del icono */
-} 
 
 

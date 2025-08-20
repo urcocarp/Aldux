@@ -1,29 +1,41 @@
 import styles from './bulletPoint.module.css';
-
-import diseño from '../../assets/diseño.png'
-import mat from '../../assets/material.png'
-import inst from '../../assets/instalacion.png'
-import financiacion from '../../assets/financiacion.png'
-
+import cinta from '../../assets/images/beneficios-cinta.jpg';
+import service from '../../assets/images/beneficios-instalacion.png';
+import telas from '../../assets/images/beneficios-telas.jpg';
+import financiacion from '../../assets/images/beneficios-pagos.jpg';
 
 const BulletPoint = () => {
   return (
     <div className={styles.cortinasContainer}>
-      <div className={styles.imgCortinas}>
+      <h2 className={styles.titulo}>Beneficios Destacados</h2>
+
+      <div className={styles.grid}>
         
-      </div>
-      <div className={styles.textCortinas}>
-      <h2>VENTAJAS DESTACADAS</h2>
-        <ul>
-            <li><img src={diseño}></img> A MEDIDA SEGÚN TU ESPACIO Y ESTILO</li>
-            <li><img src={mat}></img> MATERIALES PREMIUM PARA MAXIMA DURABILIDAD</li>
-            <li><img src={inst}></img>INSTALACION PROFESIONAL Y RAPIDA</li>
-            <li><img src={financiacion}></img>FINANCIACION EN 3, 6, 9 Y 12 CUOTAS</li>
-        </ul>
+        <div className={styles.card}>
+          <img src={cinta} alt="Diseño a medida" />
+          <p>Diseño a medida según tu espacio y estilo</p>
+        </div>
 
+        
+        <div className={styles.card}>
+          <img src={service} alt="Instalación" />
+          <p>Instalación profesional y rápida</p>
+        </div>
 
+        
+        <div className={styles.card}>
+          <img src={telas} alt="Materiales premium" />
+          <p>Materiales premium para máxima durabilidad</p>
+        </div>
+
+       
+        <div className={styles.card}>
+          <img src={financiacion} alt="Financiación" />
+          <p>Financiación en 3, 6, 9 y 12 cuotas</p>
+        </div>
       </div>
     </div>
   );
 }
-export default BulletPoint; 
+
+export default BulletPoint;

@@ -5,6 +5,7 @@ import TextLanding from './components/textLanding/textLanding.jsx';
 import BulletPoint from './components/bulletPoint/bulletPoint.jsx';
 import Slider from './components/Slider/slider.jsx';
 import QuienesSomos from './components/QuieneSomos/QuieneSomos.jsx';
+import Form from './components/Form/form.jsx'
 
 
 
@@ -24,6 +25,7 @@ function App() {
       <QuienesSomos/>
       <BulletPoint />
       <Slider/>
+      <Form />
      </div>
       
         
