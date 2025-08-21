@@ -17,8 +17,8 @@ const PORT = process.env.PORT
 
 // }).catch(error => console.error(error))}
 
-  server.listen(PORT, async () => {
+  server.listen(3001, async () => {
 
         
-         console.log(`Listening to port ${PORT}`);
+         console.log(`Listening to port 3001`);
      });
