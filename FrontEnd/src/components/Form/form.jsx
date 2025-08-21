@@ -86,24 +86,25 @@ const Form = () => {
 </Box>
 
       {/* Contenedor general del form e imagen */}
-      <Grid container spacing={4} alignItems="stretch" justifyContent="center">
+      <Grid container spacing={4} alignItems="stretch" justifyContent="center"sx={{border: '1px solid #f16436', borderRadius: '10px', padding: '20px', maxWidth: '100vw', boxSizing: 'border-box', minHeight: '70vh' }}>
         {/* Form Container */}
         <Grid item xs={12} md={6}>
           <Box
             sx={{
               p: 4,
-              height: "100%",
+              height: "auto",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
               boxShadow: 3,
               borderRadius: 2,
-              backgroundColor: "#fff"
+              backgroundColor: "#fff",
+              border: '1px solid black',
             }}
           >
             <Box
               component="form"
-              sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+              sx={{ display: "flex", flexDirection: "column", gap: 2,border: '1px solid #f16436', }}
             >
               <TextField
                 label="Nombre"
@@ -217,7 +218,7 @@ const Form = () => {
                   color: "white",
                 }}
               >
-                {loading ? <CircularProgress size={24} sx={{ color: "white" }} /> : "ENVIAR"}
+                {loading ? <CircularProgress size={24} sx={{ color: "#f16436" }} /> : "ENVIAR"}
               </Button>
             </Box>
           </Box>
