@@ -1,38 +1,117 @@
-import React from "react";
-import { TextField, Button, MenuItem, Grid, Typography, Box } from "@mui/material";
+import React, { useState } from "react";
+import { TextField, Button, MenuItem, Grid, Typography, Box, CircularProgress } from "@mui/material";
 import style from "./form.module.css";
 import imgcortina from "../../assets/images/form.png";
+import axios from "axios";
+import Swal from 'sweetalert2';
 
 const Form = () => {
-  return (
-    <div className={style.container}>
-      <Grid container alignItems="center" justifyContent="center">
-       
-        <Grid item xs={12} md={6}>
-          <Box sx={{ p: 6, maxWidth: 350, margin: "0 auto", }}>
-            <Typography
-              variant="h5"
-              gutterBottom
-              sx={{ fontWeight: "bold", mb: 4 }}
-            >
-              Pedí tu Cotización
-            </Typography>
+  const [formData, setFormData] = useState({
+    nombre: "",
+    telefono: "",
+    correo: "",
+    tipoCortina: "",
+    ancho: "",
+    alto: "",
+    descripcion: ""
+  });
 
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const resp = await axios.post("http://localhost:3001/quote/quoteRequest", formData);
+      if (resp.data.message) {
+        Swal.fire({
+          title: '¡Éxito!',
+          text: resp.data.message,
+          icon: 'success',
+          confirmButtonText: 'Aceptar'
+        });
+        setFormData({
+          nombre: "",
+          telefono: "",
+          correo: "",
+          tipoCortina: "",
+          ancho: "",
+          alto: "",
+          descripcion: ""
+        });
+      } else {
+        Swal.fire({
+          title: 'Error',
+          text: 'No se pudo enviar la cotización. Inténtalo de nuevo más tarde.',
+          icon: 'error',
+          confirmButtonText: 'Aceptar'
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        title: 'Error',
+        text: 'Ocurrió un error al enviar la solicitud.',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <Box
+      sx={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        p: 2,
+      }}
+    >
+      {/* Título */}
+    <Box sx={{ width: "100%", mb: 6 }}>
+  <Typography variant="h4" sx={{ fontWeight: 300, textAlign: "left",marginLeft: '80px',fontSize: '2.5rem', color: '#333' }}>
+    Pedí tu Cotización
+  </Typography>
+</Box>
+
+      {/* Contenedor general del form e imagen */}
+      <Grid container spacing={4} alignItems="stretch" justifyContent="center">
+        {/* Form Container */}
+        <Grid item xs={12} md={6}>
+          <Box
+            sx={{
+              p: 4,
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              boxShadow: 3,
+              borderRadius: 2,
+              backgroundColor: "#fff"
+            }}
+          >
             <Box
               component="form"
-              sx={{
-                display: "flex",
-                flexDirection: "column",
-                gap: 0.5,
-              }}
+              sx={{ display: "flex", flexDirection: "column", gap: 2 }}
             >
               <TextField
                 label="Nombre"
+                name="nombre"
+                value={formData.nombre}
+                onChange={handleChange}
                 variant="standard"
                 fullWidth
-                InputProps={{
-                  disableUnderline: false,
-                }}
                 sx={{
                   "& .MuiInputBase-root:before": { borderBottom: "1px solid #f16436" },
                   "& .MuiInputBase-root:after": { borderBottom: "2px solid #f16436" },
@@ -40,6 +119,9 @@ const Form = () => {
               />
               <TextField
                 label="Teléfono"
+                name="telefono"
+                value={formData.telefono}
+                onChange={handleChange}
                 variant="standard"
                 fullWidth
                 sx={{
@@ -49,6 +131,9 @@ const Form = () => {
               />
               <TextField
                 label="Correo"
+                name="correo"
+                value={formData.correo}
+                onChange={handleChange}
                 variant="standard"
                 fullWidth
                 sx={{
@@ -56,10 +141,12 @@ const Form = () => {
                   "& .MuiInputBase-root:after": { borderBottom: "2px solid #f16436" },
                 }}
               />
-
               <TextField
                 select
                 label="Tipo Cortina"
+                name="tipoCortina"
+                value={formData.tipoCortina}
+                onChange={handleChange}
                 variant="standard"
                 fullWidth
                 defaultValue=""
@@ -72,11 +159,12 @@ const Form = () => {
                 <MenuItem value="screen">Screen</MenuItem>
                 <MenuItem value="traslúcida">Traslúcida</MenuItem>
               </TextField>
-
-          
-              <Box sx={{ display: "flex", gap: 0.5 }}>
+              <Box sx={{ display: "flex", gap: 2 }}>
                 <TextField
                   label="Ancho"
+                  name="ancho"
+                  value={formData.ancho}
+                  onChange={handleChange}
                   variant="standard"
                   fullWidth
                   sx={{
@@ -86,6 +174,9 @@ const Form = () => {
                 />
                 <TextField
                   label="Alto"
+                  name="alto"
+                  value={formData.alto} 
+                  onChange={handleChange}
                   variant="standard"
                   fullWidth
                   sx={{
@@ -94,10 +185,11 @@ const Form = () => {
                   }}
                 />
               </Box>
-
-            
               <TextField
                 label="Descripción"
+                name="descripcion"
+                value={formData.descripcion}
+                onChange={handleChange}
                 variant="outlined"
                 fullWidth
                 multiline
@@ -111,36 +203,46 @@ const Form = () => {
                 }}
               />
 
-              
               <Button
                 variant="contained"
                 fullWidth
+                onClick={handleSubmit}
+                disabled={loading}
                 sx={{
                   bgcolor: "#f16436",
                   "&:hover": { bgcolor: "#d9532e" },
                   mt: 2,
-                  boxShadow: "none",
                   py: 1.5,
                   fontWeight: "bold",
+                  color: "white",
                 }}
               >
-                ENVIAR
+                {loading ? <CircularProgress size={24} sx={{ color: "white" }} /> : "ENVIAR"}
               </Button>
             </Box>
           </Box>
         </Grid>
 
-        
+        {/* Image Container */}
         <Grid item xs={12} md={6}>
           <Box
-            component="img"
-            src={imgcortina}
-            alt="Cortina"
-            sx={{ width: "800px", height: "380px", objectFit: "cover" }}
-          />
+            sx={{
+              height: "100%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
+            <Box
+              component="img"
+              src={imgcortina}
+              alt="Cortina"
+              sx={{ width: "100%",  height: "100%", objectFit: "cover", borderRadius: 2 }}
+            />
+          </Box>
         </Grid>
       </Grid>
-    </div>
+    </Box>
   );
 };
 

@@ -7,14 +7,14 @@ const Landing = () => {
     <div className={style.landingContainer}>
       <div className={style.landingText}>
       <h1>
-        Diseño, confort y pretección en cada detalle
+        Diseño, confort y protección en cada detalle.
       </h1>
         <h2>
           En <strong>ALDUX</strong> creamos soluciones de diseño para tus ambientes
         </h2>
       </div>
     
-    <button className={style.landingButton}>Pedí tu cotización</button>
+    <button className={style.landingButton}>PEDI TU COTIZACION</button>
 
     
     </div>

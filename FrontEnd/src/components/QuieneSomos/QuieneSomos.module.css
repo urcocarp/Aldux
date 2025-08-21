@@ -1,30 +1,32 @@
 .quienesSomos {
   background-image: url('../../assets/QuienesSomos.png');
+  background-repeat: no-repeat;    
+  background-size: cover;           /* ✅ ocupa todo el div */
+  background-position: center;
   display: flex;
   align-items: center;
-  justify-content: flex-start; /* 👈 ahora el contenido se va a la izquierda */
-  height: 90vh; 
+  justify-content: center; /* 👈 ahora el contenido se va a la izquierda */
+  height: 100vh; 
   box-sizing: border-box;
-  padding-left: 70px; /* 👈 opcional: margen desde el borde izquierdo */
+
 }
 
 .texto {
-  flex: 1;
-  max-width: 500px;
+  
+  max-width: 80%;
   font-family: 'Poppins', sans-serif;
-  color: #333;
-  text-align: left;  /* 👈 asegura que todo el texto esté alineado a la izquierda */
+  text-align: center;  /* 👈 asegura que todo el texto esté alineado a la izquierda */
 }
 .texto h1 {
-  font-size: 2rem;
-  font-weight: 400;
+  font-size: 3rem;
+  font-weight: 300;
   color: #000;
   margin: 0;
 }
 .texto h3{
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: 200;
-    color: #555;
+    color: #6D6D6D;
     margin-top: 7px;
     margin-bottom: 40px;
     
@@ -32,8 +34,8 @@
 
 
 .texto p {
-  font-size: 1rem;
+  font-size: 1.5rem;
   line-height: 1.5;
   margin-top: 20px;
-  color: #666;
+  color: #000;
 }

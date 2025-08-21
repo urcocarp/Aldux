@@ -6,14 +6,13 @@ const TextLanding = () => {
     <div className={styles.landingTittle}>
       <ul>
         <li>
-           En <strong>ALDUX</strong> creamos soluciones de diseño para tus ambientes.
-           Fabricamos cortinas, toldos y cerramientos a medida, combinando materiales premium, terminaciones
+           En <strong>ALDUX</strong> creamos soluciones de diseño para tus ambientes. Fabricamos cortinas, toldos y cerramientos a medida, combinando materiales premium, terminaciones
          impecables y un estilo moderno que realza cada espacio.
-        </li>
-        <li>
-          Con nosotros, tu casa o empresa tendrá ese toque sofisticado que estás buscando.
+         Con nosotros, tu casa o empresa tendrá ese toque sofisticado que estás buscando.
            Descubre cómo nuestros productos pueden transformar tu entorno y brindarte la privacidad y confort que mereces.
+           
         </li>
+       
       </ul>
      
     </div>

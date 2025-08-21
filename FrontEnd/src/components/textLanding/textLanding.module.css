@@ -8,6 +8,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
     
 }
 
@@ -29,15 +31,15 @@
 .landingTittle ul {
     list-style: none; /* Quitamos el estilo por defecto */
     padding-left: 0;
-    max-width: 900px;
-    text-align: left; /* Texto alineado a la izquierda */
+    max-width: 100%;
+    text-align: center; /* Texto alineado a la izquierda */
 }
 
 .landingTittle li {
     position: relative;
     padding-left: 28px; /* Espacio para la viñeta personalizada */
     margin-bottom: 18px;
-    font-size: 17px;
+    font-size: 20px;
     line-height: 1.5;
     color: #0a0a0a;
 }
