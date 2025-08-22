@@ -9,6 +9,7 @@ import Form from '../../components/Form/form';
 import callIcon from '../../assets/iconos/Untitled/tabler-icon-headset.svg'
 import toolIcon from '../../assets/iconos/Untitled/tabler-icon-tool.svg'
 import currencyIcon from '../../assets/iconos/Untitled/tabler-icon-currency-dollar.svg'
+import Footer from '../../components/Footer/footer.jsx'
  // Adjust the path as necessary
 
 
@@ -82,8 +83,10 @@ perfecta que se adapte a tu hogar y tu estilo de vida.</Typography>
       </GreyCard>
     </Grey>
     <Form />
+    <Footer />
    
   </LandingContainer>
+
    
   );
 }

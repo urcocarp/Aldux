@@ -1,5 +1,77 @@
-.containerfooter{
-    width: 100%;
-    height:250px;
-    background-color: #868686;
+.containerfooter {
+  width: 100%;
+  height: 200px;
+  background-color: #fff;
+  border-top: 1px solid #e5e5e5;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 20px 0px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.contactoFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: #000;
+}
+
+.contactoFooter h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.item img {
+  width: 18px;
+  height: 18px;
+}
+
+.linksFooter {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.linksFooter a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.2s ease-in-out;
+}
+
+.linksFooter a:hover {
+  color: #777;
+}
+
+.redesFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.redesFooter img {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+.redesFooter h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.redesFooter img:hover {
+  transform: scale(1.1);
 }
