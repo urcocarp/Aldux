@@ -21,7 +21,7 @@ console.log('desde controller',nombre,telefono,correo,tipoCortina,ancho,alto,des
     subject: 'Solicitud de cotización',
        html: `
      <!DOCTYPE html>
-<html lang="es">
+<html lang="es">git s
 <head>
   <meta charset="UTF-8">
   <title>Cotización Ecommerce</title>
