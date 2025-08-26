@@ -1,3 +1,4 @@
+import { Box, Typography, Button,styled, Grid } from "@mui/material";
 import styles from './bulletPoint.module.css';
 import cinta from '../../assets/images/beneficios-cinta.jpg';
 import service from '../../assets/images/beneficios-instalacion.png';
@@ -6,10 +7,10 @@ import financiacion from '../../assets/images/beneficios-pagos.jpg';
 
 const BulletPoint = () => {
   return (
-    <div className={styles.cortinasContainer}>
-      <h2 className={styles.titulo}>Beneficios Destacados</h2>
+    <BulletContainer >
+      <BulletTitle >Beneficios Destacados</BulletTitle>
 
-      <div className={styles.grid}>
+      <Styledgrid >
         
         <div className={styles.card}>
           <img src={cinta} alt="Diseño a medida" />
@@ -33,9 +34,59 @@ const BulletPoint = () => {
           <img src={financiacion} alt="Financiación" />
           <p>Financiación en 3, 6, 9 y 12 cuotas</p>
         </div>
-      </div>
-    </div>
+      </Styledgrid>
+    </BulletContainer>
   );
 }
 
 export default BulletPoint;
+
+const BulletContainer = styled(Box)(({ theme }) => ({
+  width: '100%',
+  height:'80vh',
+  display: 'flex',
+  textAlign: 'center',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+ // padding: '60px 40px 100px',
+  backgroundColor: '#f9f9f9',
+  boder: '1px solid red',
+  [theme.breakpoints.down("sm")]: {
+    height: "auto",
+    pading: '20px ',
+    margin:'50px 0',
+  },
+}));
+
+const BulletTitle = styled(Typography)(({ theme }) => ({
+  
+  textAlign: 'center',
+  fontSize:'2.5rem',
+  fontWeight:400,
+  marginBottom:'100px',
+  [theme.breakpoints.down("sm")]: {
+    fontSize:'1.8rem',
+    marginBottom:'10px',
+    marginTop:'30px',
+    
+  },
+}));
+
+const Styledgrid = styled(Grid)(({ theme }) => ({
+  display: 'grid',
+  gridTemplateColumns: 'repeat(2, 1fr)',
+  gap: '60px',
+  maxWidth: '1000px',
+  height: 'auto',
+  margin: '0 auto',
+  [theme.breakpoints.down("sm")]: {
+    width: "100%",
+    gridTemplateColumns: 'repeat(1, 1fr)',
+    gap: '40px',
+    padding: '0 20px',
+    boxsizing: 'border-box',
+    margin: '30px 70px',
+    
+  },
+}));

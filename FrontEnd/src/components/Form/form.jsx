@@ -80,13 +80,13 @@ const Form = () => {
     >
       {/* Título */}
     <Box sx={{ width: "100%", mb: 6 }}>
-  <Typography variant="h4" sx={{ fontWeight: 300, textAlign: "left",marginLeft: '80px',fontSize: '2.5rem', color: '#333' }}>
+  <Typography variant="h4" sx={{ fontWeight: 300, textAlign: {lg:'left',xs:'center'},marginLeft:{lg:'20px'},fontSize: {lg:'2.5rem'}, color: '#333' }}>
     Pedí tu Cotización
   </Typography>
 </Box>
 
       {/* Contenedor general del form e imagen */}
-      <Grid container spacing={4} alignItems="stretch" justifyContent="center"sx={{border: '1px solid #f16436', borderRadius: '10px', padding: '20px', maxWidth: '100vw', boxSizing: 'border-box', minHeight: '70vh' }}>
+      <Grid container spacing={4} alignItems="stretch" justifyContent="center"sx={{ borderRadius: '10px', padding: '20px', maxWidth: '100vw', boxSizing: 'border-box', Height: '100%' }}>
         {/* Form Container */}
         <Grid item xs={12} md={6}>
           <Box
@@ -99,12 +99,12 @@ const Form = () => {
               boxShadow: 3,
               borderRadius: 2,
               backgroundColor: "#fff",
-              border: '1px solid black',
+             // border: '1px solid black',
             }}
           >
             <Box
               component="form"
-              sx={{ display: "flex", flexDirection: "column", gap: 2,border: '1px solid #f16436', }}
+              sx={{ display: "flex", flexDirection: "column", gap: 2 }}
             >
               <TextField
                 label="Nombre"
@@ -225,7 +225,7 @@ const Form = () => {
         </Grid>
 
         {/* Image Container */}
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} lg={6}sx={{display: { xs: "none", lg: "block" }}}>
           <Box
             sx={{
               height: "100%",
