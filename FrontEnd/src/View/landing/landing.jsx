@@ -11,17 +11,34 @@ import toolIcon from '../../assets/iconos/Untitled/tabler-icon-tool.svg'
 import currencyIcon from '../../assets/iconos/Untitled/tabler-icon-currency-dollar.svg'
 import Footer from '../../components/Footer/footer.jsx'
 import WhatsAppButton from '../../components/WhatsAppButton.jsx';
+import Slider from '../../components/Slider/slider.jsx'
+import { useRef } from 'react';
 
 
 const Landing = () => {
+const formRef = useRef(null); 
+
+const handleScrollToForm = () => {
+    formRef.current?.scrollIntoView({ behavior: "smooth" }); // ⬅️ scroll suave
+  };
+  const heroRef = useRef(null);
+  const sobreRef = useRef(null);
+  const productosRef = useRef(null);
   
+  const scrollToSection = (ref) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
 
   return (
     <LandingContainer>
-      <NavBar />
+      <NavBar onInicioClick={() => scrollToSection(heroRef)}
+        onSobreClick={() => scrollToSection(sobreRef)}
+        onProductosClick={() => scrollToSection(productosRef)}
+        onCotizacionClick={() => scrollToSection(formRef)}/>
       <WhatsAppButton />
       <HeroContainer>
-        <Box>
+        <Box ref={heroRef}>
           <HeroTitle>
             Diseño, confort y protección en cada detalle.
           </HeroTitle>
@@ -29,7 +46,7 @@ const Landing = () => {
             En <strong>ALDUX</strong> creamos soluciones de diseño para tus ambientes
           </SubTitle>
         </Box>
-        <StyledButton>PEDI TU COTIZACION</StyledButton>
+        <StyledButton onClick={handleScrollToForm}>PEDI TU COTIZACION</StyledButton>
       </HeroContainer>
 
       <Box sx={{
@@ -53,7 +70,7 @@ const Landing = () => {
           Descubre cómo nuestros productos pueden transformar tu entorno y brindarte la privacidad y confort que mereces.
         </Typography>
       </Box>
-
+      <Box ref={sobreRef} >
       <AboutContainer>
         <AboutContent>
           <Typography sx={{
@@ -79,6 +96,7 @@ const Landing = () => {
           </Typography>
         </AboutContent>
       </AboutContainer>
+      </Box>
 
       <BulletPoint />
 
@@ -121,8 +139,12 @@ const Landing = () => {
           </Box>
         </GreyCard>
       </Grey>
-
-      <Form />
+       <Box ref={productosRef}>
+        <Slider />
+       </Box>
+       <Box ref={formRef}>
+          <Form />
+        </Box>
       <Footer />
     </LandingContainer>
   );
