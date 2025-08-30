@@ -1,14 +1,15 @@
 .cortinasContainer {
   width: 100%;
   text-align: center;
-  padding: 60px 40px 100px;
+  padding: 60px 40px 120px;
   background-color: #f9f9f9;
 }
 
 .titulo {
   font-size: 2rem;
   font-weight: 400;
-  margin-bottom: 60px;
+  margin-bottom: 120px;
+  
   font-family: 'Poppins', sans-serif;
   color: #000;
 }
@@ -31,7 +32,22 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
 }
+.card1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.493);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 50px;
+} 
+
 .card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.808);
+}
+.card1:hover {
   transform: scale(1.05);
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.808);
 }
@@ -43,7 +59,11 @@
   height: 100%;
   object-fit: cover;
 }
-
+.card1 img {
+  width: 50%;
+  height: 100%;
+  object-fit: cover;
+}
 .card p {
   flex: 1;
   padding: 20px;
@@ -52,6 +72,13 @@
   color: #333;
   text-align: center;
 }
-
+.card1 p {
+  flex: 1;
+  padding: 20px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  text-align: center;
+}
 
 

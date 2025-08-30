@@ -174,8 +174,8 @@ const Footer = () => {
           Seguinos en nuestras redes
         </Typography>
         <Box  className="icons">
-          <Link href="#"><img src={insta} alt="instagram" /></Link>
-          <Link href="#"><img src={facebook} alt="facebook" /></Link>
+          <Link href="https://www.instagram.com/alduxtoldocortinas/" target="_blank"  rel="noopener noreferrer"><img src={insta} alt="instagram" /></Link>
+          <Link href="https://www.facebook.com/AlduxToldosCortinasCerramientos?locale=es_LA" target="_blank"  rel="noopener noreferrer"><img src={facebook} alt="facebook" /></Link>
         </Box>
       </RedesFooter>
     </ContainerFooter>

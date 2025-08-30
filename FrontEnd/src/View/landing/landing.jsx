@@ -99,46 +99,119 @@ const handleScrollToForm = () => {
       </Box>
 
       <BulletPoint />
+<Grey sx={{ py: { xs: 6, md: 8 } }}>
+   
 
-      <Grey>
-        <GreyCard>
-          <img src={callIcon} alt="Home Icon" width={80} height={80} />
-          <Box>
-            <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '16px', marginBottom: '10px', fontWeight: 600 }}>
-              Asesoramiento personalizado
-            </Typography>
-            <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '14px' }}>
-              Te ayudamos a elegir la mejor solución para tu espacio.
-              Te asesoramos de principio a fin para encontrar la solución
-              perfecta que se adapte a tu hogar y tu estilo de vida.
-            </Typography>
-          </Box>
-        </GreyCard>
 
-        <GreyCard>
-          <img src={toolIcon} alt="Home Icon" width={80} height={80} />
-          <Box>
-            <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '16px', marginBottom: '10px', fontWeight: 600 }}>
-              Somos fabricantes personalizados
-            </Typography>
-            <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '14px' }}>
-              Controlamos cada etapa del proceso para garantizar calidad, diseño y precios competitivos, sin intermediarios.
-            </Typography>
-          </Box>
-        </GreyCard>
+  {/* GRID DE CARDS */}
+  <Box
+    sx={{
+      display: 'grid',
+      gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
+      gap: { xs: 2.5, md: 3 },
+      justifyItems: 'center',
+    }}
+  >
+    <GreyCard
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 2,
+        p: 2.5,
+        width: '100%',
+        maxWidth: 420,            // un poco más ancha en desktop
+        
+      }}
+    >
+      <img
+        src={callIcon}
+        alt="Asesoramiento Icon"
+        width={80}
+        height={80}
+        className="icon-glow"
+        style={{ transition: 'filter .3s ease' }}
+        onMouseOver={e => e.currentTarget.style.filter = "drop-shadow(0 0 12px #eee9e9ff) brightness(1.2)"}
+        onMouseOut={e => e.currentTarget.style.filter = ""}
+      />
+      <Box>
+        <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '16px', mb: '10px', fontWeight: 600 }}>
+          Asesoramiento personalizado
+        </Typography>
+        <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '14px' }}>
+          Te ayudamos a elegir la mejor solución para tu espacio. Te acompañamos de principio a fin.
+        </Typography>
+      </Box>
+    </GreyCard>
 
-        <GreyCard>
-          <img src={currencyIcon} alt="Home Icon" width={80} height={80} />
-          <Box>
-            <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '16px', marginBottom: '10px', fontWeight: 600 }}>
-              Cotización sin cargo
-            </Typography>
-            <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '14px' }}>
-              Nos envías las medidas, te respondemos con presupuesto detallado.
-            </Typography>
-          </Box>
-        </GreyCard>
-      </Grey>
+    <GreyCard
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 2,
+        p: 2.5,
+        width: '100%',
+        maxWidth: 420,
+      
+      
+      }}
+    >
+      <img
+        src={toolIcon}
+        alt="Fabricantes Icon"
+        width={80}
+        height={80}
+        className="icon-glow"
+        style={{ transition: 'filter .3s ease' }}
+        onMouseOver={e => e.currentTarget.style.filter = "drop-shadow(0 0 12px #eee9e9ff) brightness(1.2)"}
+        onMouseOut={e => e.currentTarget.style.filter = ""}
+      />
+      <Box>
+        <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '16px', mb: '10px', fontWeight: 600 }}>
+          Somos fabricantes personalizados
+        </Typography>
+        <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '14px' }}>
+          Controlamos cada etapa del proceso para garantizar calidad y precios competitivos, sin intermediarios.
+        </Typography>
+      </Box>
+    </GreyCard>
+
+    <GreyCard
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 2,
+        p: 2.5,
+        width: '100%',
+        maxWidth: 420,
+        
+      }}
+    >
+      <img
+        src={currencyIcon}
+        alt="Cotización Icon"
+        width={80}
+        height={80}
+        className="icon-glow"
+        style={{ transition: 'filter .3s ease' }}
+        onMouseOver={e => e.currentTarget.style.filter = "drop-shadow(0 0 12px #eee9e9ff) brightness(1.2)"}
+        onMouseOut={e => e.currentTarget.style.filter = ""}
+      />
+      <Box>
+        <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '16px', mb: '10px', fontWeight: 600 }}>
+          Cotización sin cargo
+        </Typography>
+        <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '14px' }}>
+          Nos envías las medidas y te respondemos con un presupuesto detallado.
+        </Typography>
+      </Box>
+    </GreyCard>
+  </Box>
+
+</Grey>
+
+
+
+
        <Box ref={productosRef}>
         <Slider />
        </Box>

@@ -24,15 +24,15 @@ const BulletPoint = () => {
         </div>
 
         
-        <div className={styles.card}>
-          <img src={telas} alt="Materiales premium" />
+        <div className={styles.card1}>
           <p>Materiales premium para máxima durabilidad</p>
+          <img src={telas} alt="Materiales premium" />
         </div>
 
        
-        <div className={styles.card}>
-          <img src={financiacion} alt="Financiación" />
+        <div className={styles.card1}>
           <p>Financiación en 3, 6, 9 y 12 cuotas</p>
+          <img src={financiacion} alt="Financiación" />
         </div>
       </Styledgrid>
     </BulletContainer>
@@ -64,7 +64,7 @@ const BulletTitle = styled(Typography)(({ theme }) => ({
   textAlign: 'center',
   fontSize:'2.5rem',
   fontWeight:400,
-  marginBottom:'100px',
+  marginBottom:'40px',
   [theme.breakpoints.down("sm")]: {
     fontSize:'1.8rem',
     marginBottom:'10px',

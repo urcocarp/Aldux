@@ -2,11 +2,16 @@ import styles from './slider.module.css';
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
-
 import verticales from '../../assets/verticales.jpg';
 import roller from '../../assets/rollersunscreenin.jpg';
 import toldos from '../../assets/toldos.jpg';
 import tradicionales from '../../assets/tradicionales.jpg';
+import rollerscreen from '../../assets/rollersunscreen.jpg';
+import toldos2 from '../../assets/toldosext.jpg'
+import verticales2 from '../../assets/cortinasverticales2.jpg';
+import espacios from '../../assets/espaciosverticales.jpg';
+import toldos3 from '../../assets/toldoext.jpg'
+
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -17,6 +22,11 @@ const Slider = () => {
     { img: roller, title: "Cortinas Roller" },
     { img: toldos, title: "Toldos" },
     { img: tradicionales, title: "Cortinas Tradicionales" },
+    {img:rollerscreen, title: "Cortinas Roller Sunscreen"},
+    {img:toldos2, title: "Toldos Exterior"},
+    {img:toldos3, title: 'Toldos para tu espacio'},
+    {img:verticales2, title: "verticales de lujo"},
+    {img:espacios, title: "Espacios detallados"},
   ];
 
   return (
@@ -29,7 +39,7 @@ const Slider = () => {
         autoplay={{ delay: 3000 }}
         slidesPerView={3}
         spaceBetween={-40}
-        modules={[Navigation]}
+        modules={[Navigation, Autoplay]}
         className={styles.slider}
       >
         {slides.map((slide, i) => (
