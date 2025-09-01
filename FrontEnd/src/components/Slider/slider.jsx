@@ -23,9 +23,9 @@ const Slider = () => {
     { img: toldos, title: "Toldos" },
     { img: tradicionales, title: "Cortinas Tradicionales" },
     {img:rollerscreen, title: "Cortinas Roller Sunscreen"},
-    {img:toldos2, title: "Toldos Exterior"},
+    {img:toldos2, title: "Toldos exterior proyectables"},
     {img:toldos3, title: 'Toldos para tu espacio'},
-    {img:verticales2, title: "verticales de lujo"},
+    {img:verticales2, title: "Verticales de lujo"},
     {img:espacios, title: "Espacios detallados"},
   ];
 

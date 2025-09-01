@@ -156,9 +156,17 @@ const Form = () => {
                   "& .MuiInputBase-root:after": { borderBottom: "2px solid #f16436" },
                 }}
               >
-                <MenuItem value="blackout">Blackout</MenuItem>
-                <MenuItem value="screen">Screen</MenuItem>
-                <MenuItem value="traslúcida">Traslúcida</MenuItem>
+                <MenuItem value="blackout">Roller</MenuItem>
+                <MenuItem value="screen">Bandas verticales</MenuItem>
+                <MenuItem value="traslúcida">Cortinas zebras/eclipse</MenuItem>
+                <MenuItem value="traslúcida">Venecianas</MenuItem>
+                <MenuItem value="traslúcida">Toldos proyectables</MenuItem>
+                <MenuItem value="traslúcida">Cerramientos verticales</MenuItem>
+                <MenuItem value="traslúcida">Toldos romanos</MenuItem>
+                <MenuItem value="traslúcida">Pergolas</MenuItem>
+                <MenuItem value="traslúcida">Automatizacion</MenuItem>
+
+
               </TextField>
               <Box sx={{ display: "flex", gap: 2 }}>
                 <TextField

@@ -147,12 +147,12 @@ const Footer = () => {
         <Item>
           <img src={maps} alt="maps" />
           <Link
-            href="https://www.google.com/maps/search/?api=1&query=Rafael+de+Igarzabal+945,+Córdoba" 
+            href="https://www.google.com/maps/place//@-31.2602904,-64.0995768,18.51z/data=!4m6!1m5!3m4!2zMzHCsDE1JzM1LjYiUyA2NMKwMDUnNTYuNiJX!8m2!3d-31.259901!4d-64.0990524?hl=es&entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D" 
             target="_blank" 
             rel="noopener noreferrer"
              sx={{ color: '#333', textDecoration: 'none' }}
           >
-          <span>Rafael de Igarzabal 945, Córdoba</span>
+          <span>Ruta provincial 174 esquina Roman Benitez</span>
           </Link>
         </Item>
         <Item>
