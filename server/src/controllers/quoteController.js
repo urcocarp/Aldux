@@ -16,7 +16,7 @@ console.log('desde controller',nombre,telefono,correo,tipoCortina,ancho,alto,des
 
   const mailOptions = {
     from: 'alduxcotizaciones2025@gmail.com',
-    to: 'urcocarp1986.nr@gmail.com',   
+    to: 'alduxcotizaciones@gmail.com',   
     
     subject: 'Solicitud de cotización',
        html: `

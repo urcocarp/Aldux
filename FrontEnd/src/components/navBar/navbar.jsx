@@ -32,7 +32,14 @@ const NavBar = ({ onInicioClick, onSobreClick, onProductosClick, onCotizacionCli
           <NavButton onClick={onProductosClick}>Productos</NavButton>
           <NavButton onClick={onCotizacionClick}>Cotización</NavButton>
         </NavLinks>
-        <MenuDrawer open={openDrawer} toggleDrawer={handleClosedrawer} />
+       <MenuDrawer 
+            open={openDrawer} 
+            toggleDrawer={handleClosedrawer}
+            onInicioClick={onInicioClick}
+            onSobreClick={onSobreClick}
+            onProductosClick={onProductosClick}
+            onCotizacionClick={onCotizacionClick}
+        />
 
         
         <MobileMenuButton>
