@@ -30,7 +30,7 @@ const Form = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const resp = await axios.post("http://localhost:3001/quote/quoteRequest", formData);
+      axios.post("https://aldux.com.ar/server/quote/quoteRequest", formData);
       if (resp.data.message) {
         Swal.fire({
           title: '¡Éxito!',
