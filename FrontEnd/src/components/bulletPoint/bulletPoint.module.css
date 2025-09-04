@@ -9,20 +9,19 @@
   font-size: 2rem;
   font-weight: 400;
   margin-bottom: 120px;
-  
   font-family: 'Poppins', sans-serif;
   color: #000;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas por defecto */
   gap: 60px;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-.card {
+.card, .card1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,49 +29,28 @@
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.493);
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-
 }
+
 .card1 {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #fff;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.493);
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   margin-bottom: 50px;
-} 
+}
 
-.card:hover {
+.card:hover, .card1:hover {
   transform: scale(1.05);
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.808);
 }
-.card1:hover {
-  transform: scale(1.05);
-  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.808);
-}
-.reverse{
+
+.reverse {
   flex-direction: row-reverse;
 }
-.card img {
+
+.card img, .card1 img {
   width: 50%;
   height: 100%;
   object-fit: cover;
 }
-.card1 img {
-  width: 50%;
-  height: 100%;
-  object-fit: cover;
-}
-.card p {
-  flex: 1;
-  padding: 20px;
-  font-size: 1rem;
-  font-family: 'Poppins', sans-serif;
-  color: #333;
-  text-align: center;
-}
-.card1 p {
+
+.card p, .card1 p {
   flex: 1;
   padding: 20px;
   font-size: 1rem;
@@ -81,4 +59,70 @@
   text-align: center;
 }
 
+/* ------------------ MEDIA QUERIES ------------------ */
 
+/* Notebook / Pantallas medianas */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr; /* Una columna */
+    gap: 40px;
+  }
+
+  /* Mantener las cards con tamaño de desktop */
+  .card, .card1 {
+    flex-direction: row; /* Horizontal como desktop */
+  }
+
+  .card img, .card1 img {
+    width: 50%; /* Igual que desktop */
+  }
+
+  .card p, .card1 p {
+    padding: 20px; /* Igual que desktop */
+    font-size: 1rem; /* Igual que desktop */
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .cortinasContainer {
+    padding: 50px 30px 80px;
+  }
+
+  .titulo {
+    font-size: 1.8rem;
+    margin-bottom: 80px;
+  }
+
+  /* Apilar cards verticalmente */
+  .card, .card1 {
+    flex-direction: column; /* Imagen arriba, texto abajo */
+  }
+
+  .card img, .card1 img {
+    width: 100%;
+    height: auto;
+  }
+
+  .card p, .card1 p {
+    padding: 15px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Móvil / Pantallas pequeñas */
+@media (max-width: 480px) {
+  .cortinasContainer {
+    padding: 40px 20px 60px;
+  }
+
+  .titulo {
+    font-size: 1.5rem;
+    margin-bottom: 60px;
+  }
+
+  .card p, .card1 p {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+}
