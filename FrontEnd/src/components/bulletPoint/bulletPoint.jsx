@@ -1,6 +1,6 @@
 import { Box, Typography, styled, Grid } from "@mui/material";
 import styles from './bulletPoint.module.css';
-import cinta from '../../assets/images/beneficios-cinta.jpg';
+import medida from '../../assets/imagenmedida.png';
 import service from '../../assets/images/beneficios-instalacion.png';
 import telas from '../../assets/images/beneficios-telas.jpg';
 import financiacion from '../../assets/images/beneficios-pagos.jpg';
@@ -12,7 +12,7 @@ const BulletPoint = () => {
 
       <StyledGrid>
         <div className={styles.card}>
-          <img src={cinta} alt="Diseño a medida" />
+          <img src={medida} alt="Diseño a medida" />
           <p>Diseño a medida según tu espacio y estilo</p>
         </div>
 
