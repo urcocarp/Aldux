@@ -123,7 +123,7 @@ const Form = () => {
           }}
         >
           <Typography
-            variant="h4"
+            variant="h2"
             sx={{
               fontWeight: 300,
               textAlign: { lg: "left", xs: "center" },
@@ -196,7 +196,7 @@ const Form = () => {
   }}
 >
           <Typography
-            variant="h4"
+            variant="h2"
             sx={{
               fontWeight: 400,
               fontSize: { xs: "1.5rem", sm: "2rem", lg: "3rem" },

@@ -8,7 +8,7 @@ import financiacion from '../../assets/images/beneficios-pagos.jpg';
 const BulletPoint = () => {
   return (
     <BulletContainer>
-      <BulletTitle>Beneficios Destacados</BulletTitle>
+      <BulletTitle component="h2">Beneficios Destacados</BulletTitle>
 
       <StyledGrid>
         <div className={styles.card}>

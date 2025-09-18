@@ -31,7 +31,7 @@ const handleScrollToForm = () => {
 
 
   return (
-    <LandingContainer>
+    <LandingContainer component="main">
       <NavBar onInicioClick={() => scrollToSection(heroRef)}
         onSobreClick={() => scrollToSection(sobreRef)}
         onProductosClick={() => scrollToSection(productosRef)}
@@ -39,10 +39,10 @@ const handleScrollToForm = () => {
       <WhatsAppButton />
       <HeroContainer>
         <Box ref={heroRef}>
-          <HeroTitle>
+          <HeroTitle component="h1">
             Diseño, confort y protección en cada detalle.
           </HeroTitle>
-          <SubTitle>
+          <SubTitle component="h2">
             En <strong>ALDUX</strong> creamos soluciones de diseño para tus ambientes
           </SubTitle>
         </Box>
@@ -63,7 +63,7 @@ const handleScrollToForm = () => {
         fontSize: { xs: '18px', md: '32px' },
         textAlign:{xs:'center', md:'justify'}
       }}>
-        <Typography sx={{ fontFamily: 'Poppins', fontSize: { xs: '16px', md: '20px' } }}>
+        <Typography component="p" sx={{ fontFamily: 'Poppins', fontSize: { xs: '16px', md: '20px' } }}>
           En <strong>ALDUX</strong> fabricamos cortinas, toldos y cerramientos a medida,
           combinando materiales premium, terminaciones impecables y un estilo moderno que realza cada espacio.
           Con nosotros, tu casa o empresa tendrá ese toque sofisticado que estás buscando.
@@ -73,7 +73,7 @@ const handleScrollToForm = () => {
       <Box ref={sobreRef} >
       <AboutContainer>
         <AboutContent>
-          <Typography sx={{
+          <Typography component="h2" sx={{
             fontFamily: 'Poppins',
             fontSize: { xs:'2rem',lg: '2.5rem' },
             textAlign: {xs:'center',lg:'left'},
@@ -88,7 +88,7 @@ const handleScrollToForm = () => {
           }}>
             Somos fabricantes, somos <strong>ALDUX</strong>
           </SubTitle>
-          <Typography sx={{ fontFamily: 'Poppins', fontSize: { xs: '16px', md: '20px' }, textAlign: 'left' }}>
+          <Typography component="p" sx={{ fontFamily: 'Poppins', fontSize: { xs: '16px', md: '20px' }, textAlign: 'left' }}>
             <strong>ALDUX</strong> es una empresa cordobesa con más de 18 años de experiencia en la
             fabricación de cortinas, toldos y cerramientos a medida. Nos apasiona el diseño y la
             arquitectura de interiores, por eso trabajamos con materiales de primera calidad y un
@@ -134,10 +134,10 @@ const handleScrollToForm = () => {
         onMouseOut={e => e.currentTarget.style.filter = ""}
       />
       <Box>
-        <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '16px', mb: '10px', fontWeight: 600 }}>
+        <Typography component="h3" sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '16px', mb: '10px', fontWeight: 600 }}>
           Asesoramiento personalizado
         </Typography>
-        <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '14px' }}>
+        <Typography component="h3" sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '14px' }}>
           Te ayudamos a elegir la mejor solución para tu espacio. Te acompañamos de principio a fin.
         </Typography>
       </Box>
@@ -166,10 +166,10 @@ const handleScrollToForm = () => {
         onMouseOut={e => e.currentTarget.style.filter = ""}
       />
       <Box>
-        <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '16px', mb: '10px', fontWeight: 600 }}>
+        <Typography component="h3" sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '16px', mb: '10px', fontWeight: 600 }}>
           Somos fabricantes personalizados
         </Typography>
-        <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '14px' }}>
+        <Typography component="h3" sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '14px' }}>
           Controlamos cada etapa del proceso para garantizar calidad y precios competitivos, sin intermediarios.
         </Typography>
       </Box>
@@ -197,10 +197,10 @@ const handleScrollToForm = () => {
         onMouseOut={e => e.currentTarget.style.filter = ""}
       />
       <Box>
-        <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '16px', mb: '10px', fontWeight: 600 }}>
+        <Typography component="h3" sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '16px', mb: '10px', fontWeight: 600 }}>
           Cotización sin cargo
         </Typography>
-        <Typography sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '14px' }}>
+        <Typography component="h3" sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '14px' }}>
           Nos envías las medidas y te respondemos con un presupuesto detallado.
         </Typography>
       </Box>
