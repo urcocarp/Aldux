@@ -44,8 +44,9 @@ const BulletContainer = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
-  padding: '60px 40px 100px',
-  backgroundColor: '#f9f9f9',
+  padding: '60px 40px ',
+  backgroundColor: "#f7f7f7",
+  //marginTop: '100px',
 //  border: '1px solid red', // corregido typo
   [theme.breakpoints.down("lg")]: { // notebooks grandes
     padding: '50px 30px 80px',

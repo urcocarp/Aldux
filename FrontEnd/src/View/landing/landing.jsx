@@ -13,6 +13,22 @@ import Footer from '../../components/Footer/footer.jsx'
 import WhatsAppButton from '../../components/WhatsAppButton.jsx';
 import Slider from '../../components/Slider/slider.jsx'
 import { useRef } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, EffectFade } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import 'swiper/css/effect-fade';
+import hero1 from "../../assets/hero1.png";
+import hero2 from "../../assets/hero2.png";
+import hero3 from "../../assets/hero3.png";
+import hero4 from "../../assets/hero4.png";
+import hero from '../../assets/images/hero.jpg';
+import portada from '../../assets/Portada5.webp';
+import AboutCard from '../../components/AboutCard.jsx';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+
+
 
 
 const Landing = () => {
@@ -29,51 +45,138 @@ const handleScrollToForm = () => {
     ref.current?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const onTiendaClick = () => {
+    console.log("Redirigiendo a la tienda...");
+    
+     window.location.href = "https://www.aldux.com.ar/tienda/shop";
+  };
+
+  const [aboutRef, aboutInView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
 
   return (
     <LandingContainer component="main">
-      <NavBar onInicioClick={() => scrollToSection(heroRef)}
+       <NavBar onInicioClick={() => scrollToSection(heroRef)}
         onSobreClick={() => scrollToSection(sobreRef)}
         onProductosClick={() => scrollToSection(productosRef)}
-        onCotizacionClick={() => scrollToSection(formRef)}/>
+        onCotizacionClick={() => scrollToSection(formRef)}
+        onTiendaClick={onTiendaClick}/> 
       <WhatsAppButton />
-      <HeroContainer>
-        <Box ref={heroRef}>
-          <HeroTitle component="h1">
-            Diseño, confort y protección en cada detalle.
-          </HeroTitle>
-          <SubTitle component="h2">
-            En <strong>ALDUX</strong> creamos soluciones de diseño para tus ambientes
-          </SubTitle>
-        </Box>
-        <StyledButton onClick={handleScrollToForm}>PEDI TU COTIZACION</StyledButton>
-      </HeroContainer>
+      <HeroContainer
+  ref={heroRef}
 
-      <Box sx={{
-        width: { xs: '90%', md: '80%' },
-        height: { xs: 'auto', md: '30vh' },
-        overflowY: { md: 'auto' },
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        fontFamily: 'Poppins',
-        justifyContent: 'center',
-        marginTop: {xs: '40px', md: '60px'},
-        marginBottom: {xs: '40px', md: '60px'},
-        fontSize: { xs: '18px', md: '32px' },
-        textAlign:{xs:'center', md:'justify'}
-      }}>
-        <Typography component="p" sx={{ fontFamily: 'Poppins', fontSize: { xs: '16px', md: '20px' } }}>
-          En <strong>ALDUX</strong> fabricamos cortinas, toldos y cerramientos a medida,
-          combinando materiales premium, terminaciones impecables y un estilo moderno que realza cada espacio.
-          Con nosotros, tu casa o empresa tendrá ese toque sofisticado que estás buscando.
-          Descubre cómo nuestros productos pueden transformar tu entorno y brindarte la privacidad y confort que mereces.
-        </Typography>
-      </Box>
-      <Box ref={sobreRef} >
-      <AboutContainer>
+>
+  {/* Contenedor de texto arriba */}
+  <Box
+     sx={{
+    width: { xs: "100%", md: "50%" },
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: { xs: "center", md: "flex-start" },
+    textAlign: { xs: "center", md: "center" },
+    color: "#000",
+    paddingRight: { md: "20px" },
+    gap: "20px",
+    marginTop:'50px'
+  }}
+  >
+    <HeroTitle component="h1">
+      Diseño y confort que elevan tus espacios.
+    </HeroTitle>
+    <SubTitle component="h2">
+      En <strong>ALDUX</strong> creamos soluciones para tus ambientes
+    </SubTitle>
+    <StyledButton onClick={handleScrollToForm}>
+      PEDÍ TU COTIZACIÓN
+    </StyledButton>
+  </Box>
+
+  {/* Contenedor de Swiper abajo */}
+  <Box  sx={{
+    width: { xs: "100%", md: "50%" },
+    height: { xs: "300px", md: "50%" },
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    position: "relative",
+    marginTop: { xs: "40px", md: 0 },
+  }}>
+    <Swiper
+      modules={[Autoplay]}
+      autoplay={{
+        delay: 4000,
+        disableOnInteraction: false,
+      }}
+      loop={true}
+      slidesPerView={1}
+      speed={1000}
+      effect="slide"
+      style={{ width: '100%', height: '100%' , borderRadius:'3px'}}
+    >
+      {[hero1, hero2, hero3, hero4].map((img, i) => (
+        <SwiperSlide key={i}>
+          <Slide image={img} />
+        </SwiperSlide>
+      ))}
+    </Swiper>
+  </Box>
+</HeroContainer>
+
+
+           
+      <AboutContainer ref={sobreRef}>
         <AboutContent>
-          <Typography component="h2" sx={{
+        <Box ref={aboutRef} 
+          sx={{
+    display:'flex',
+    flexDirection:'column',
+    alignItems:'center',
+    justifyContent:'center',
+    width: { xs: '100%', sm: '90%', md: '50%' },
+    gap: '20px',  // espaciado entre tarjetas
+    marginBottom: { xs: '40px', md: 0 },
+   
+  }}
+        >
+        
+         {[
+    { icon: callIcon, title: "Asesoramiento Personalizado", description: "Te ayudamos a elegir la mejor solución para tu espacio." },
+    { icon: toolIcon, title: "Fabricación a Medida", description: "Controlamos cada etapa del proceso para garantizar calidad." },
+    { icon: currencyIcon, title: "Cotización sin Cargo", description: "Envíanos tus medidas y te respondemos con presupuesto detallado." }
+  ].map((card, index) => (
+    <motion.div
+       key={index}
+    initial={{ opacity: 0, y: 50 }}
+    animate={aboutInView ? { opacity: 1, y: 0 } : {}}
+    transition={{ duration: 0.6, delay: index * 0.3 }}
+     style={{ display: 'flex', justifyContent: 'center', width: '100%', marginBottom: '20px' }}
+    >
+      <AboutCard 
+        icon={card.icon}
+        title={card.title}
+        description={card.description}
+      />
+    </motion.div>
+  ))}
+        </Box>
+           <Box 
+           sx={{
+  display:'flex',
+  flexDirection:'column',
+  alignItems: { xs:'center', lg:'flex-start' },
+  justifyContent:'flex-start',
+  width: { xs: '100%', lg: '50%' },
+  padding: { xs: '20px', lg:'50px' },
+  boxSizing:'border-box',
+  
+}}
+          //  sx={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'space-between',width:'50%', height:'100%',padding:'50px',boxSizing:'border-box'}}
+           >
+             <Typography component="h2" sx={{
             fontFamily: 'Poppins',
             fontSize: { xs:'2rem',lg: '2.5rem' },
             textAlign: {xs:'center',lg:'left'},
@@ -89,127 +192,24 @@ const handleScrollToForm = () => {
             Somos fabricantes, somos <strong>ALDUX</strong>
           </SubTitle>
           <Typography component="p" sx={{ fontFamily: 'Poppins', fontSize: { xs: '16px', md: '20px' }, textAlign: 'left' }}>
-            <strong>ALDUX</strong> es una empresa cordobesa con más de 18 años de experiencia en la
+            Somos una empresa cordobesa con más de 18 años de experiencia en la
             fabricación de cortinas, toldos y cerramientos a medida. Nos apasiona el diseño y la
             arquitectura de interiores, por eso trabajamos con materiales de primera calidad y un
             equipo especializado que cuida cada detalle.
           </Typography>
+            <Typography component="p" sx={{ fontFamily: 'Poppins',marginTop:'20px', fontSize: { xs: '16px', md: '20px' } }}>
+          En <span style={{fontWeight:500}}>ALDUX</span> fabricamos cortinas, toldos y cerramientos a medida,
+          combinando materiales premium, terminaciones impecables y un estilo moderno que realza cada espacio.
+          Con nosotros, tu casa o empresa tendrá ese toque sofisticado que estás buscando.
+          Descubre cómo nuestros productos pueden transformar tu entorno y brindarte la privacidad y confort que mereces.
+        </Typography>
+          </Box>
+         
         </AboutContent>
       </AboutContainer>
-      </Box>
+      
 
       <BulletPoint />
-<Grey sx={{ py: { xs: 6, md: 8 } }}>
-   
-
-
-  {/* GRID DE CARDS */}
-  <Box
-    sx={{
-      display: 'grid',
-      gridTemplateColumns: { xs: '1fr', md: 'repeat(3, 1fr)' },
-      gap: { xs: 2.5, md: 3 },
-      justifyItems: 'center',
-    }}
-  >
-    <GreyCard
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 2,
-        p: 2.5,
-        width: '100%',
-        maxWidth: 420,            // un poco más ancha en desktop
-        
-      }}
-    >
-      <img
-        src={callIcon}
-        alt="Asesoramiento Icon"
-        width={80}
-        height={80}
-        className="icon-glow"
-        style={{ transition: 'filter .3s ease' }}
-        onMouseOver={e => e.currentTarget.style.filter = "drop-shadow(0 0 12px #eee9e9ff) brightness(1.2)"}
-        onMouseOut={e => e.currentTarget.style.filter = ""}
-      />
-      <Box>
-        <Typography component="h3" sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '16px', mb: '10px', fontWeight: 600 }}>
-          Asesoramiento personalizado
-        </Typography>
-        <Typography component="h3" sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '14px' }}>
-          Te ayudamos a elegir la mejor solución para tu espacio. Te acompañamos de principio a fin.
-        </Typography>
-      </Box>
-    </GreyCard>
-
-    <GreyCard
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 2,
-        p: 2.5,
-        width: '100%',
-        maxWidth: 420,
-      
-      
-      }}
-    >
-      <img
-        src={toolIcon}
-        alt="Fabricantes Icon"
-        width={80}
-        height={80}
-        className="icon-glow"
-        style={{ transition: 'filter .3s ease' }}
-        onMouseOver={e => e.currentTarget.style.filter = "drop-shadow(0 0 12px #eee9e9ff) brightness(1.2)"}
-        onMouseOut={e => e.currentTarget.style.filter = ""}
-      />
-      <Box>
-        <Typography component="h3" sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '16px', mb: '10px', fontWeight: 600 }}>
-          Somos fabricantes personalizados
-        </Typography>
-        <Typography component="h3" sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '14px' }}>
-          Controlamos cada etapa del proceso para garantizar calidad y precios competitivos, sin intermediarios.
-        </Typography>
-      </Box>
-    </GreyCard>
-
-    <GreyCard
-      sx={{
-        display: 'flex',
-        alignItems: 'center',
-        gap: 2,
-        p: 2.5,
-        width: '100%',
-        maxWidth: 420,
-        
-      }}
-    >
-      <img
-        src={currencyIcon}
-        alt="Cotización Icon"
-        width={80}
-        height={80}
-        className="icon-glow"
-        style={{ transition: 'filter .3s ease' }}
-        onMouseOver={e => e.currentTarget.style.filter = "drop-shadow(0 0 12px #eee9e9ff) brightness(1.2)"}
-        onMouseOut={e => e.currentTarget.style.filter = ""}
-      />
-      <Box>
-        <Typography component="h3" sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '16px', mb: '10px', fontWeight: 600 }}>
-          Cotización sin cargo
-        </Typography>
-        <Typography component="h3" sx={{ fontFamily: 'Poppins', color: 'white', fontSize: '14px' }}>
-          Nos envías las medidas y te respondemos con un presupuesto detallado.
-        </Typography>
-      </Box>
-    </GreyCard>
-  </Box>
-
-</Grey>
-
-
 
 
        <Box ref={productosRef}>
@@ -234,6 +234,7 @@ const LandingContainer = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   width: "100%",
   minHeight: "100vh",
+  backgroundColor: "#f7f7f7",
     overflowX: "hidden",
    [theme.breakpoints.down("sm")]: {
     height: "auto",
@@ -245,42 +246,86 @@ const LandingContainer = styled(Box)(({ theme }) => ({
 const HeroContainer = styled(Box)(({ theme }) => ({
   width: "100%",
   height: "100vh",
-  backgroundImage: `url(${heroImg})`,
-  backgroundSize: "cover",       // que se ajuste sin deformarse
-  backgroundPosition: "center",  // centrada siempre
-  backgroundRepeat: "no-repeat", // que no se repita
   display: "flex",
-  flexDirection: "column",
+  flexDirection: "row",
   alignItems: "center",
-  justifyContent: "center",
+  justifyContent: "space-between",
+  overflow: "hidden",
+  padding: "5%",
+  boxSizing: "border-box",
+  backgroundImage: `url(${portada})`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
 
-  [theme.breakpoints.down("sm")]: {
-    height: "100vh",
+  [theme.breakpoints.down("md")]: {
+    flexDirection: "column",
+    justifyContent: "center",
+    //height: "auto",
+    padding: "60px 20px",
+    textAlign: "center",
   },
+}));
+
+
+const Slide = ({ image }) => (
+  <Box
+    sx={{
+      width: '100%',
+      height: '100%',
+      backgroundImage: `url(${image})`,
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',   // llena todo el contenedor
+      backgroundRepeat: 'no-repeat',
+      borderRadius: '5px',
+    }}
+  />
+);
+
+const Overlay = styled(Box)(({ theme }) => ({
+  position: "absolute",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100%",
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "flex-start",
+  alignItems: "center",
+  textAlign: "left",
+  zIndex: 2,
+  color: "black",
+  padding: "0 20px",
+  backgroundColor: "rgba(255, 255, 255, 0.2)",
+  boxSizing: "border-box",
 }));
 
 const HeroTitle = styled(Typography)(({ theme }) => ({
   color: "black",
   fontSize: "3rem",
-  fontWeight: 600,
+  fontWeight: 500,
   fontFamily: 'Poppins',
-  textAlign: "center",
+  textAlign: "left",
+  margin:'0',
   [theme.breakpoints.down("md")]: {
-    fontSize: "2.5rem",
+    fontSize: "3rem",
+    textAlign: "center",
   },
   [theme.breakpoints.down("sm")]: {
     fontSize: "2rem",
+    textAlign: "center",
   },
 }));
 
 const SubTitle = styled(Typography)(({ theme }) => ({
-  color: "black",
+  color: "#4F4F4F",
   fontSize: "1.5rem",
   fontWeight: 300,
   fontFamily: 'Poppins',
-  textAlign: "center",
+  textAlign: "left",
   [theme.breakpoints.down("sm")]: {
     fontSize: "1rem",
+    marginTop: "20px",
+    textAlign: "center",
   },
 }));
 
@@ -290,7 +335,7 @@ const StyledButton = styled(Button)(({ theme }) => ({
   justifyContent: "center",
   width: "300px",
   height: "50px",
-  marginTop: "150px",
+  marginTop: "50px",
   padding: "10px 30px",
   backgroundColor: "#eb5904",
   fontSize: "20px",
@@ -305,42 +350,61 @@ const StyledButton = styled(Button)(({ theme }) => ({
   boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.425)",
 
   "&:hover": {
-    backgroundColor: "#eb5904",
+    backgroundColor: "black",
   },
 
   [theme.breakpoints.down("sm")]: {
     width: "300px",
     height: "45px",
     fontSize: "16px",
-    marginTop: "100px",
+    marginTop: "50px",
   },
 }));
 
 const AboutContainer = styled(Box)(({ theme }) => ({
   width: "100%",
-  height: "70vh",
-  backgroundImage: `url(${aboutImg})`,
-  backgroundSize: "cover",
+  marginTop:'100px',
+  backgroundColor: "#f7f7f7",
+  padding: "20px 0",
   [theme.breakpoints.down("md")]: {
-    height: "50vh",
-    padding: "20px",
+    padding: "20px 0",
   },
 }));
 
+// const AboutContent = styled(Box)(({ theme }) => ({
+//   width: "100%",
+//   display: "flex",
+//   flexDirection: "row",
+//   justifyContent: "space-between",
+//   boxSizing: 'border-box',
+//   [theme.breakpoints.down("md")]: {
+//     flexDirection: "column",
+//     alignItems: "center",
+//   },
+//   [theme.breakpoints.down("sm")]: {
+//     width: "95%",
+//     margin: "0 auto",
+//   }
+// }));
+
 const AboutContent = styled(Box)(({ theme }) => ({
-  width: "30%",
-  height: "100%",
+  width: "100%",
   display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  marginLeft: '100px',
-  [theme.breakpoints.down("md")]: {
-    width: "80%",
-    marginLeft: "0",
-    margin: "0 auto",
+  flexDirection: "column", // default: móviles y tablets
+  justifyContent: "space-between",
+  boxSizing: 'border-box',
+  
+  // Entre 800px y 1199px → column
+  [theme.breakpoints.between('md', 'lg')]: {
+    flexDirection: 'column',
+    alignItems: 'center',
   },
-  [theme.breakpoints.down("sm")]: {
-    width: "90%",
+  
+  // 1200px en adelante → row
+  [theme.breakpoints.up('lg')]: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
   },
 }));
 

@@ -16,14 +16,18 @@ const WhatsAppButton = () => {
       color="success"
       onClick={handleClick}
       sx={{
-        position: "fixed",
-        bottom: 20,
-        right: 20,
-        zIndex: 2000,
-        boxShadow: "0px 4px 10px rgba(0,0,0,0.3)"
+         position: "fixed",
+    top: { xs: "auto", md: "50%" },   // en móvil no usamos top
+    bottom: { xs: 20, md: "auto" },   // en móvil 20px desde abajo
+    right: 20,                         // siempre a la derecha
+    transform: { xs: "none", md: "translateY(-50%)" }, // desktop centrado vertical
+    zIndex: 2000,
+    boxShadow: "0px 4px 10px rgba(0,0,0,0.3)",
+    width: 60,
+    height: 60,
       }}
     >
-      <WhatsAppIcon />
+      <WhatsAppIcon sx={{ fontSize: 40 }} /> {/* ícono más grande */}
     </Fab>
   );
 };

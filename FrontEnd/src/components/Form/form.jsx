@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { TextField, Button, MenuItem, Typography, Box, CircularProgress } from "@mui/material";
-import imgcortina from "../../assets/images/fondovolteado.jpg";
+import imgcortina from "../../assets/cotizador.webp";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -119,7 +119,7 @@ const Form = () => {
             justifyContent: "flex-start",
             boxShadow: 3,
             borderRadius: 2,
-            backgroundColor: "rgba(255,255,255,0.9)",
+            backgroundColor: "white",
           }}
         >
           <Typography

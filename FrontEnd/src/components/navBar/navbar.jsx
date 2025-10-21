@@ -4,7 +4,7 @@ import MenuDrawer from "../MenuDrawer";
 import menuIcon from '../../assets/iconos/Untitled/tabler-icon-menu-2.svg';
 import logo from "../../assets/images/logo-aldux.svg";
 
-const NavBar = ({ onInicioClick, onSobreClick, onProductosClick, onCotizacionClick }) => {
+const NavBar = ({ onInicioClick, onSobreClick, onProductosClick, onCotizacionClick, onTiendaClick }) => {
    const [openDrawer, setOpenDrawer] = useState(false);
    console.log(openDrawer);
    
@@ -28,6 +28,7 @@ const NavBar = ({ onInicioClick, onSobreClick, onProductosClick, onCotizacionCli
         
         <NavLinks>
           <NavButton onClick={onInicioClick}>Inicio</NavButton>
+          {/* <NavButton onClick={onTiendaClick}>Tienda</NavButton> */}
           <NavButton onClick={onSobreClick}>Sobre Nosotros</NavButton>
           <NavButton onClick={onProductosClick}>Productos</NavButton>
           <NavButton onClick={onCotizacionClick}>Cotización</NavButton>

@@ -3,14 +3,22 @@ import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from 'swiper/modules';
 import verticales from '../../assets/verticales.jpg';
-import roller from '../../assets/rollersunscreenin.jpg';
-import toldos from '../../assets/toldos.jpg';
-import tradicionales from '../../assets/tradicionales.jpg';
-import rollerscreen from '../../assets/rollersunscreen.jpg';
-import toldos2 from '../../assets/toldosext.jpg'
+import toldos from '../../assets/toldos.webp';
+import tradicionales from '../../assets/tradicionales.webp';
+import rollerscreen from '../../assets/rollersunscreen.webp';
+import toldos2 from '../../assets/toldoext.webp'
 import verticales2 from '../../assets/cortinasverticales2.jpg';
 import espacios from '../../assets/espaciosverticales.jpg';
-import toldos3 from '../../assets/toldoext.jpg'
+import toldos3 from '../../assets/toldosext.webp'
+import toldos4 from '../../assets/carrusel/toldo1.webp'
+import toldos5 from '../../assets/carrusel/toldo2.webp'
+import tradicionales2 from '../../assets/carrusel/tradicionales1.webp'
+import tradicionales4 from '../../assets/carrusel/tradicionales3.webp'
+import verticales3 from '../../assets/carrusel/verticales3.webp'
+import verticales4 from '../../assets/carrusel/verticales1.webp'
+import verticales5 from '../../assets/carrusel/verticales2.webp'
+import toldosMicroPerforados from '../../assets/carrusel/Toldo microperforado1.webp'
+import rollerscreen1 from '../../assets/carrusel/Sunscreen.webp'
 
 
 import 'swiper/css';
@@ -19,14 +27,22 @@ import 'swiper/css/navigation';
 const Slider = () => {
   const slides = [
     { img: verticales, title: "Cortinas Verticales" },
-    { img: roller, title: "Cortinas Roller" },
     { img: toldos, title: "Toldos" },
     { img: tradicionales, title: "Cortinas Tradicionales" },
     {img:rollerscreen, title: "Cortinas Roller Sunscreen"},
     {img:toldos2, title: "Toldos exterior proyectables"},
     {img:toldos3, title: 'Toldos para tu espacio'},
+    {img:tradicionales4, title: "Cortinas Tradicionales"},
+    {img:verticales4, title: "Cortinas Verticales"},
+    { img: toldos4, title: "Toldos" },
     {img:verticales2, title: "Verticales de lujo"},
     {img:espacios, title: "Espacios detallados"},
+    {img:verticales3, title: "Cortinas Verticales"},
+    {img:toldosMicroPerforados, title: "Toldos Microperforados"}, 
+    {img:rollerscreen1, title: "Cortinas Roller Sunscreen"},
+    {img:tradicionales2, title: "Cortinas Tradicionales"},
+    { img: toldos5, title: "Toldos" },
+    {img:verticales5, title: "Cortinas Verticales"},
   ];
 
   return (
