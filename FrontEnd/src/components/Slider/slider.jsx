@@ -10,8 +10,8 @@ import toldos2 from '../../assets/toldoext.webp'
 import verticales2 from '../../assets/cortinasverticales2.jpg';
 import espacios from '../../assets/espaciosverticales.jpg';
 import toldos3 from '../../assets/toldosext.webp'
-import toldos4 from '../../assets/carrusel/toldo1.webp'
-import toldos5 from '../../assets/carrusel/toldo2.webp'
+import toldos4 from '../../assets/carrusel/Toldo1.webp'
+import toldos5 from '../../assets/carrusel/Toldo2.webp'
 import tradicionales2 from '../../assets/carrusel/tradicionales1.webp'
 import tradicionales4 from '../../assets/carrusel/tradicionales3.webp'
 import verticales3 from '../../assets/carrusel/verticales3.webp'
