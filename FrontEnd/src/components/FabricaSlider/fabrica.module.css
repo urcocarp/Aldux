@@ -1,0 +1,131 @@
+.sliderWrapper {
+  width: 100%;
+  text-align: center;
+  padding: 15px 0;
+  background: #f7f7f7;
+  margin: 10px 0;
+  margin-bottom: 80px;
+  
+}
+
+.slider {
+  width: 70%;
+  max-width: 1500px;   /* 🔑 ancho máximo del carrusel */
+  margin: 0 auto;      /* 🔑 centrado */
+  padding-bottom: 40px;
+  overflow: hidden;
+  
+}
+
+.title {
+  font-size: clamp(2.5rem, 2vw, 2.2rem);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+   background-color: #eb5904; 
+  color: whitesmoke;
+  font-family: 'Poppins', sans-serif;
+ 
+   /* max-width: 900px;    */
+  width: 90%;         /* que sea responsive */
+  margin: 100px auto 150px auto; /* centrado + margen inferior */
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); */
+ 
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-family: 'Poppins', sans-serif;
+  color: #666;
+  margin-bottom: 100px;
+}
+
+.card {
+  position: relative;
+  /* overflow: hidden; */
+  height: 250px;
+  max-width: 320px;
+  margin:  auto;  /* 🔑 centra cada tarjeta */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+   transition: transform 0.4s ease, box-shadow 0.4s ease; /* 🔑 transición suave */
+  
+}
+
+.image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease-in-out; /* 🔑 transición suave */
+}
+
+.card:hover {
+  transform: scale(1.05); /* 🔑 efecto scale global */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* 🔑 sombra más fuerte */
+}
+
+
+.overlay {
+  font-family: 'Poppins', sans-serif;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.685);
+  color: rgb(255, 255, 255);
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+ text-transform: uppercase;
+}
+
+/* Flechas Swiper */
+.slider :global(.swiper-button-next),
+.slider :global(.swiper-button-prev) {
+   color: #000 !important;   /* Flechas negras */
+  width: 40px;
+  height: 40px;
+  top: 50%;                 /* Centrado vertical */
+  transform: translateY(-50%);
+}
+
+.slider :global(.swiper-button-next)::after,
+.slider :global(.swiper-button-prev)::after {
+  font-size:100px;
+  
+}
+.slider :global(.swiper-button-next)::after {
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+.slider :global(.swiper-button-prev) {
+  left: -10px;   /* mueve la flecha izquierda hacia afuera */
+}
+
+.slider :global(.swiper-button-next) {
+  right: -10px;  /* mueve la flecha derecha hacia afuera */
+}
+
+
+.slider :global(.swiper-button-prev)::after {
+  font-size: 2.5rem;
+  font-weight: 100;
+}
+
+@media (max-width: 430px) {
+  .title {
+    font-size: 1.1rem;  /* reduce el tamaño del título */
+    padding: 0 10px;    /* agrega algo de espacio lateral */
+    word-wrap: break-word; /* evita que las palabras largas salgan del contenedor */
+  }
+
+  .subtitle {
+    font-size: 0.9rem;  /* opcional: ajustar subtítulo también */
+    padding: 0 10px;
+  }
+}
+
+

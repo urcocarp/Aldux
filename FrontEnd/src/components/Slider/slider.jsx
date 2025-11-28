@@ -35,7 +35,6 @@ const Slider = () => {
     {img:tradicionales4, title: "Cortinas Tradicionales"},
     {img:verticales4, title: "Cortinas Verticales"},
     { img: toldos4, title: "Toldos" },
-    {img:verticales2, title: "Verticales de lujo"},
     {img:espacios, title: "Espacios detallados"},
     {img:verticales3, title: "Cortinas Verticales"},
     {img:toldosMicroPerforados, title: "Toldos Microperforados"}, 

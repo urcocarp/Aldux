@@ -2,7 +2,7 @@ import { Box, Typography, styled, Grid } from "@mui/material";
 import styles from './bulletPoint.module.css';
 import medida from '../../assets/imagenmedida.png';
 import service from '../../assets/images/beneficios-instalacion.png';
-import telas from '../../assets/images/beneficios-telas.jpg';
+import materiales from '../../assets/materiales.webp';
 import financiacion from '../../assets/images/beneficios-pagos.jpg';
 
 const BulletPoint = () => {
@@ -18,16 +18,16 @@ const BulletPoint = () => {
 
         <div className={styles.card}>
           <img src={service} alt="Instalación" />
-          <p>Instalación profesional y rápida</p>
+          <p>Instalación profesional</p>
         </div>
 
         <div className={styles.card1}>
           <p>Materiales premium para máxima durabilidad</p>
-          <img src={telas} alt="Materiales premium" />
+          <img src={materiales} alt="Materiales premium" />
         </div>
 
         <div className={styles.card1}>
-          <p>Financiación en 3, 6, 9 y 12 cuotas</p>
+          <p>Financiación tarjetas bancarizadas</p>
           <img src={financiacion} alt="Financiación" />
         </div>
       </StyledGrid>
@@ -62,8 +62,9 @@ const BulletContainer = styled(Box)(({ theme }) => ({
 const BulletTitle = styled(Typography)(({ theme }) => ({
   textAlign: 'center',
   fontSize: '2.5rem',
-  fontWeight: 400,
-  marginBottom: '40px',
+  //fontWeight: 400,
+  fontFamily: 'Poppins',
+  marginBottom: '80px',
   [theme.breakpoints.down("lg")]: {
     fontSize: '2.2rem',
   },
@@ -81,7 +82,7 @@ const BulletTitle = styled(Typography)(({ theme }) => ({
 const StyledGrid = styled(Grid)(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: 'repeat(2, 1fr)', // 2 columnas por default
-  gap: '60px',
+  gap: '100px',
   maxWidth: '1000px',
   margin: '0 auto',
   height: 'auto',

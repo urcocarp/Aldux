@@ -31,7 +31,7 @@ const NavBar = ({ onInicioClick, onSobreClick, onProductosClick, onCotizacionCli
           {/* <NavButton onClick={onTiendaClick}>Tienda</NavButton> */}
           <NavButton onClick={onSobreClick}>Sobre Nosotros</NavButton>
           <NavButton onClick={onProductosClick}>Productos</NavButton>
-          <NavButton onClick={onCotizacionClick}>Cotización</NavButton>
+          {/* <NavButton onClick={onCotizacionClick}>Cotización</NavButton> */}
         </NavLinks>
        <MenuDrawer 
             open={openDrawer} 
