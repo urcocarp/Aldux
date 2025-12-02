@@ -40,6 +40,8 @@ const CardContainer = styled(Box)(({ theme }) => ({
     textAlign: "center",
     gap: "10px",
     height: "auto",
+    padding: "10px",
+   
   },
 }))
 

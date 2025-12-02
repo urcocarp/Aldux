@@ -73,64 +73,78 @@ const Landing = () => {
         onTiendaClick={onTiendaClick}
       /> 
 
-      {/* 🔥 CARD FLOTANTE: WhatsApp + Teléfono */}
-      <Box
-        sx={{
-          position: "fixed",
-          right: 20,
-          top: "50%",
-          transform: "translateY(-50%)",
-          backgroundColor: "#fff",
-          boxShadow: "0 4px 18px rgba(0,0,0,0.25)",
-          borderRadius: "16px",
-          padding: "16px",
-          zIndex: 2000,
-          display: "flex",
-          flexDirection: "column",
-          gap: 2,
-          alignItems: "center",
-        }}
-      >
-        {/* WhatsApp */}
-        <a
-          href="https://wa.me/5493516548401"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            width: 55,
-            height: 55,
-            borderRadius: "50%",
-            backgroundColor: "#25D366",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
-            textDecoration: "none",
-            color: "white",
-          }}
-        >
-          <WhatsAppIcon sx={{ fontSize: 32 }} />
-        </a>
+      {/* 🔥 CARD FLOTANTE: WhatsApp + Teléfono (Responsiva) */}
+<Box
+  sx={{
+    position: "fixed",
+    right: { xs: 10, sm: 15, md: 20 },
+    top: { xs: "68%", sm: "60%", md: "50%" },
+    transform: "translateY(-50%)",
+    backgroundColor: "#fff",
+    boxShadow: "0 4px 18px rgba(0,0,0,0.25)",
+    borderRadius: "16px",
+    padding: { xs: "10px", sm: "12px", md: "16px" },
+    zIndex: 2000,
+    display: "flex",
+    flexDirection: "column",
+    gap: { xs: 1.2, sm: 1.5, md: 2 },
+    alignItems: "center",
+  }}
+>
+  {/* WhatsApp */}
+  <a
+    href="https://wa.me/5493516548401"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+    }}
+  >
+    <Box
+      sx={{
+        width: { xs: 42, sm: 48, md: 55 },
+        height: { xs: 42, sm: 48, md: 55 },
+        borderRadius: "50%",
+        backgroundColor: "#25D366",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+        color: "white",
+      }}
+    >
+      <WhatsAppIcon sx={{ fontSize: { xs: 24, sm: 28, md: 32 } }} />
+    </Box>
+  </a>
 
-        {/* Teléfono */}
-        <a
-          href="tel:5493516548401"
-          style={{
-            width: 55,
-            height: 55,
-            borderRadius: "50%",
-            backgroundColor: "#1e88e5",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
-            textDecoration: "none",
-            color: "white",
-          }}
-        >
-          <PhoneIcon sx={{ fontSize: 28 }} />
-        </a>
-      </Box>
+  {/* Teléfono */}
+  <a
+    href="tel:5493516548401"
+    style={{
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+    }}
+  >
+    <Box
+      sx={{
+        width: { xs: 42, sm: 48, md: 55 },
+        height: { xs: 42, sm: 48, md: 55 },
+        borderRadius: "50%",
+        backgroundColor: "#1e88e5",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        boxShadow: "0 4px 10px rgba(0,0,0,0.3)",
+        color: "white",
+      }}
+    >
+      <PhoneIcon sx={{ fontSize: { xs: 22, sm: 26, md: 28 } }} />
+    </Box>
+  </a>
+</Box>
 
 
       {/* HERO */}
@@ -197,6 +211,9 @@ const Landing = () => {
               width: { xs: '100%', sm: '90%', md: '50%' },
               gap: '20px',
               marginBottom: { xs: '40px', md: 0 },
+              padding:'10px',
+              //border:'1px solid black',
+              boxSizing:'border-box',
             }}
           >
             {[
@@ -209,7 +226,7 @@ const Landing = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={aboutInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: index * 0.3 }}
-                style={{ display: 'flex', justifyContent: 'center', width: '100%', marginBottom: '20px' }}
+                style={{ display: 'flex', justifyContent: 'center', width: '100%', marginBottom: '20px', borderRadius:'12px' }}
               >
                 <AboutCard 
                   icon={card.icon}
@@ -397,31 +414,42 @@ const HeroContainer = styled(Box)(({ theme }) => ({
 }));
 
 const HeroTitle = styled(Typography)(({ theme }) => ({
-  color: "black",
+  color: "Black",
   fontSize: "5rem",
-  fontWeight: 500,
+  fontWeight: 600,
   fontFamily: "Poppins",
   margin: 0,
   textAlign: "left",
-  lineHeight: 1.05,
-  position: "relative",
-  zIndex: 30,
-  display: "inline-block",
-  textShadow: "0 4px 10px rgba(0,0,0,0.8)",
-  "& span": {
-    color: "black",
-    textShadow: "0 4px 10px rgba(0,0,0,0.9)",
+  lineHeight: 1.1,
+  textShadow: "0 4px 10px rgba(0,0,0,0.6)",
+
+  [theme.breakpoints.down("lg")]: {
+    fontSize: "3.2rem",
   },
-  [theme.breakpoints.down("md")]: { fontSize: "3rem" },
-  [theme.breakpoints.down("sm")]: { fontSize: "2rem" },
+  [theme.breakpoints.down("md")]: {
+    fontSize: "2.5rem",
+    textAlign: "center",
+  },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "2.5rem",
+    lineHeight: 1.2,
+  },
 }));
 
 const SubTitle = styled(Typography)(({ theme }) => ({
-  color: "#f5f5f5",
-  fontSize: "1.5rem",
+  color: "white",
+  fontSize: "1.3rem",
   fontWeight: 300,
-  fontFamily: 'Poppins',
-  textShadow: "0 3px 8px rgba(0,0,0,0.75)",
+  fontFamily: "Poppins",
+  textShadow: "0 2px 6px rgba(0,0,0,0.6)",
+
+  [theme.breakpoints.down("md")]: {
+    fontSize: "1rem",
+    textAlign: "center",
+  },
+  [theme.breakpoints.down("sm")]: {
+    fontSize: "0.9rem",
+  },
 }));
 
 const AboutContainer = styled(Box)(({ theme }) => ({
