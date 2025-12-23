@@ -93,7 +93,7 @@ const Landing = () => {
 >
   {/* WhatsApp */}
   <a
-    href="https://wa.me/5493516548401"
+    href="https://wa.me/5493518509477"
     target="_blank"
     rel="noopener noreferrer"
     style={{
@@ -121,7 +121,7 @@ const Landing = () => {
 
   {/* Teléfono */}
   <a
-    href="tel:5493516548401"
+    href="tel:5493518509477"
     style={{
       width: "100%",
       display: "flex",

@@ -38,7 +38,7 @@ const Form = ({open,setOpen}) => {
     setLoading(true);
     try {
       const resp = await axios.post(
-        "https://aldux.com.ar/server/quote/quoteRequest",
+        "https://www.aldux.com.ar/server/quote/quoteRequest",
         formData
       );
       if (resp.data.message) {
