@@ -12,7 +12,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const Form = ({open,setOpen}) => {
+const Form = ({ open, setOpen }) => {
   const [formData, setFormData] = useState({
     nombre: "",
     telefono: "",
@@ -24,7 +24,6 @@ const Form = ({open,setOpen}) => {
   });
 
   const [loading, setLoading] = useState(false);
-  
 
   const handleClose = () => setOpen(false);
 
@@ -33,14 +32,34 @@ const Form = ({open,setOpen}) => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  // ✅ VALIDACIÓN SEGURA
+  const isFormValid = () => {
+    return Object.values(formData).every(
+      (value) => typeof value === "string" && value.trim() !== ""
+    );
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!isFormValid()) {
+      Swal.fire({
+        title: "Campos incompletos",
+        text: "Por favor completá todos los campos antes de enviar.",
+        icon: "warning",
+        confirmButtonText: "Aceptar",
+      });
+      return;
+    }
+
     setLoading(true);
+
     try {
       const resp = await axios.post(
         "https://www.aldux.com.ar/server/quote/quoteRequest",
         formData
       );
+
       if (resp.data.message) {
         Swal.fire({
           title: "¡Éxito!",
@@ -48,6 +67,7 @@ const Form = ({open,setOpen}) => {
           icon: "success",
           confirmButtonText: "Aceptar",
         });
+
         setFormData({
           nombre: "",
           telefono: "",
@@ -60,7 +80,7 @@ const Form = ({open,setOpen}) => {
       } else {
         Swal.fire({
           title: "Error",
-          text: "No se pudo enviar la cotización. Inténtalo de nuevo más tarde.",
+          text: "No se pudo enviar la cotización. Inténtalo más tarde.",
           icon: "error",
           confirmButtonText: "Aceptar",
         });
@@ -78,8 +98,6 @@ const Form = ({open,setOpen}) => {
   };
 
   if (!open) return null;
-  console.log(open);
-  
 
   return (
     <Box
@@ -89,8 +107,8 @@ const Form = ({open,setOpen}) => {
         left: 0,
         right: 0,
         width: "100%",
-        maxWidth:'100vw',
-        height: { xs: "50vh", sm: "40vh", md: 280, lg: 300 },
+        maxWidth: "100vw",
+        height: { xs: "50vh", sm: "40vh", md: 280, lg: 360 },
         bgcolor: "#fff",
         boxShadow: "0 -2px 12px rgba(0,0,0,0.1)",
         borderTopLeftRadius: 3,
@@ -105,13 +123,7 @@ const Form = ({open,setOpen}) => {
         alignItems: "flex-start",
       }}
     >
-      {/* Contenedor interno (centrado y limitado al 70%) */}
-      <Box
-        sx={{
-          width: { xs: "95%", sm: "85%", md: "70%" },
-          mx: "auto",
-        }}
-      >
+      <Box sx={{ width: { xs: "95%", sm: "85%", md: "70%" }, mx: "auto" }}>
         {/* Header */}
         <Box
           sx={{
@@ -140,21 +152,12 @@ const Form = ({open,setOpen}) => {
         <Box
           component="form"
           onSubmit={handleSubmit}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 1.2,
-          }}
+          sx={{ display: "flex", flexDirection: "column", gap: 1.2 }}
         >
           {/* Primera fila */}
-          <Box
-            sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 2,
-            }}
-          >
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
             <TextField
+              required
               label="Nombre"
               name="nombre"
               value={formData.nombre}
@@ -172,6 +175,7 @@ const Form = ({open,setOpen}) => {
               }}
             />
             <TextField
+              required
               label="Teléfono"
               name="telefono"
               value={formData.telefono}
@@ -189,6 +193,7 @@ const Form = ({open,setOpen}) => {
               }}
             />
             <TextField
+              required
               label="Correo"
               name="correo"
               value={formData.correo}
@@ -208,14 +213,9 @@ const Form = ({open,setOpen}) => {
           </Box>
 
           {/* Segunda fila */}
-          <Box
-            sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 2,
-            }}
-          >
+          <Box sx={{ display: "flex", flexWrap: "wrap", gap: 2 }}>
             <TextField
+              required
               select
               label="Tipo de cortina"
               name="tipoCortina"
@@ -233,6 +233,7 @@ const Form = ({open,setOpen}) => {
                 },
               }}
             >
+              <MenuItem value="">Seleccionar tipo de cortina</MenuItem>
               <MenuItem value="Roller">Roller</MenuItem>
               <MenuItem value="Bandas verticales">Bandas verticales</MenuItem>
               <MenuItem value="Zebras/Eclipse">
@@ -247,7 +248,9 @@ const Form = ({open,setOpen}) => {
               <MenuItem value="Pérgolas">Pérgolas</MenuItem>
               <MenuItem value="Automatización">Automatización</MenuItem>
             </TextField>
+
             <TextField
+              required
               label="Ancho"
               name="ancho"
               value={formData.ancho}
@@ -265,6 +268,7 @@ const Form = ({open,setOpen}) => {
               }}
             />
             <TextField
+              required
               label="Alto"
               name="alto"
               value={formData.alto}
@@ -285,6 +289,7 @@ const Form = ({open,setOpen}) => {
 
           {/* Descripción */}
           <TextField
+            required
             label="Descripción"
             name="descripcion"
             value={formData.descripcion}
@@ -305,8 +310,8 @@ const Form = ({open,setOpen}) => {
           {/* Botón */}
           <Box sx={{ textAlign: "center", mt: 1 }}>
             <Button
+              type="submit"
               variant="contained"
-              onClick={handleSubmit}
               disabled={loading}
               sx={{
                 bgcolor: "#f16436",
