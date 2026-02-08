@@ -1,43 +1,24 @@
-import './App.css'; 
-import NavBar from './components/navBar/navbar.jsx';
-import Landing from './View/landing/landing.jsx';
-import TextLanding from './components/textLanding/textLanding.jsx';
-import BulletPoint from './components/bulletPoint/bulletPoint.jsx';
-import Slider from './components/Slider/slider.jsx';
-import QuienesSomos from './components/QuieneSomos/QuieneSomos.jsx';
-import Form from './components/Form/form.jsx'
-import { Box, Typography } from "@mui/material";
+import { Routes, Route } from "react-router-dom";
 
+import Landing from "./View/landing/landing";
+import Products from "./View/Products";
+import ProductDetail from "./View/ProductDetail";
+//import NotFound from "./pages/NotFound";
 
-
-
-
-
-
-function App() {
-  
-
+export default function App() {
   return (
-   <Box>
-    <Landing/>
-   </Box>
-      
+    <Routes>
+      {/* Landing */}
+      <Route path="/" element={<Landing />} />
 
-  )
+      {/* Listado de productos */}
+      <Route path="/productos" element={<Products />} />
+
+      {/* Detalle de producto (ruta dinámica) */}
+      <Route path="/productos/:slug" element={<ProductDetail />} />
+
+      {/* 404 */}
+      {/* {/* <Route path="*" element={<NotFound />} />  */}
+    </Routes>
+  );
 }
-
-export default App
-
-//  <div className="App">
-//       <NavBar />
-//      <div >
-//       <Landing />
-//       <TextLanding />
-//       <QuienesSomos/>
-//       <BulletPoint />
-//       <Slider/>
-//       <Form />
-//      </div>
-      
-        
-//     </div>

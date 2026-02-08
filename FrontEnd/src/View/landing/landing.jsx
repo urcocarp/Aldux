@@ -37,6 +37,8 @@ import FabricaSlider from '../../components/FabricaSlider/FabricaSlider.jsx';
 // ⭐ NUEVOS ICONOS MUI
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import PhoneIcon from "@mui/icons-material/Phone";
+import { useNavigate } from "react-router-dom";
+
 
 const Landing = () => {
   const [open, setOpen] = useState(true);
@@ -44,6 +46,8 @@ const Landing = () => {
   const heroRef = useRef(null);
   const sobreRef = useRef(null);
   const productosRef = useRef(null);
+
+  const navigate = useNavigate();
 
   const handleScrollToForm = () => {
     formRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -57,6 +61,10 @@ const Landing = () => {
     window.location.href = "https://www.aldux.com.ar/tienda/shop";
   };
 
+  const onProductosClick = () => {
+  navigate("/productos");
+};
+
   const [aboutRef, aboutInView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
@@ -68,9 +76,9 @@ const Landing = () => {
       <NavBar 
         onInicioClick={() => scrollToSection(heroRef)}
         onSobreClick={() => scrollToSection(sobreRef)}
-        onProductosClick={() => scrollToSection(productosRef)}
+        onProductosClick={onProductosClick}
         onCotizacionClick={() => scrollToSection(formRef)}
-        onTiendaClick={onTiendaClick}
+       // onTiendaClick={onTiendaClick}
       /> 
 
       {/* 🔥 CARD FLOTANTE: WhatsApp + Teléfono (Responsiva) */}
