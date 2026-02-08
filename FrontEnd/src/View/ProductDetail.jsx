@@ -242,25 +242,14 @@ export default function ProductDetail() {
   const hasThumbs = images.length > 1;
 
   const productSchema = {
-  "@context": "https://schema.org",
-  "@type": "Product",
-  name: product.name,
-  image: images,
-  description: product.seo.description,
-  brand: {
-    "@type": "Brand",
-    name: "Aldux",
-  },
-  url: product.seo.canonical,
-  offers: {
-    "@type": "Offer",
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    image: images,
+    description: product.seo.description,
+    brand: { "@type": "Brand", name: "Aldux" },
     url: product.seo.canonical,
-    priceCurrency: "ARS",
-    price: "0.00",
-    availability: "https://schema.org/InStock",
-  },
-};
-
+  };
 
   const faqSchema = product.faq?.length
     ? {
